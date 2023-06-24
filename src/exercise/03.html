@@ -10,18 +10,23 @@
   <script type="text/babel">
     // Tu nie potrzeba tego importu, bo importuję cały pakiet ReactDOM w linijce 7
     //    import {createRoot} from "react-dom";
+    const contr = 'container'
+    const sayHi = 'Hello hello'
 
-    const element = <div className="container">Hello!</div>
+    const element = (
+      <div id="string" className={contr.toLowerCase()}>
+        {sayHi}
+      </div>
+    )
 
-    const domNode = document.getElementById('root');
-    // dostaję się do createRoot przez ReactDOM
-    const root = ReactDOM.createRoot(domNode);
+    const domNode = document.getElementById('root')
+    // using createRoot from ReactDOM
+    const root = ReactDOM.createRoot(domNode)
 
-    // ewentualnie można tak:
+    // alternatively:
     // const { createRoot } = ReactDOM;
     // const root = createRoot(domNode);
 
-    root.render(element);
+    root.render(element)
   </script>
 </body>
-
