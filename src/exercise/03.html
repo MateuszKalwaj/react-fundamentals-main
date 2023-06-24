@@ -8,24 +8,15 @@
   <script src="https://unpkg.com/@babel/standalone@7.22.5/babel.js"></script>
 
   <script type="text/babel">
-    // Tu nie potrzeba tego importu, bo importuję cały pakiet ReactDOM w linijce 7
-    //    import {createRoot} from "react-dom";
-    const contr = 'container'
-    const sayHi = 'Hello hello'
 
-    const element = (
-      <div id="string" className={contr.toLowerCase()}>
-        {sayHi}
-      </div>
-    )
+    const children = 'Hello World'
+    const className = 'container'
+    const props = {children, className}
+
+    const element = <div {...props} />
 
     const domNode = document.getElementById('root')
-    // using createRoot from ReactDOM
     const root = ReactDOM.createRoot(domNode)
-
-    // alternatively:
-    // const { createRoot } = ReactDOM;
-    // const root = createRoot(domNode);
 
     root.render(element)
   </script>
