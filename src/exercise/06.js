@@ -22,14 +22,15 @@ function UsernameForm({onSubmitUsername}) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(event.target.elements[0].value)
-        onSubmitUsername(event.target.elements[0].value)
+        const value = event.target.elements.usernameInput.value;
+        console.dir(value)
+        onSubmitUsername(value)
     }
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Username:</label>
-        <input type="text" />
+        <label htmlFor="usernameInput">Username:</label>
+        <input id="usernameInput" type="text" />
       </div>
       <button type="submit">Submit</button>
     </form>
