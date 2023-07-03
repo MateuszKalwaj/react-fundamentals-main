@@ -2,32 +2,31 @@
 // http://localhost:3000/isolated/exercise/06.js
 
 import * as React from 'react'
-import {useState} from "react";
+import {useState} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
-
-  const [error, setError] = useState(null);
+  const [username, setUsername] = useState('')
 
   function handleSubmit(event) {
     event.preventDefault()
-    // const value = event.target.elements.usernameInput.value
-    // console.log(value)
-    onSubmitUsername(event.target.elements.usernameInput.value)
+    onSubmitUsername(username)
   }
 
-    function handleChange (event) {
-        const {value} = event.target
-        const isValid = value === value.toLowerCase();
-        setError(isValid ? null : 'Username can handle only lower case')
-    }
-    return (
+  function handleChange(event) {
+    const {value} = event.target
+    setUsername(value.toLowerCase());
+  }
+  return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input id="usernameInput" type="text" onChange={handleChange} />
+        <input
+          id="usernameInput"
+          type="text"
+          onChange={handleChange}
+        />
       </div>
-        <div>{error}</div>
-      <button disabled={error} type="submit">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   )
 }
